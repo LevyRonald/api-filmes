@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  app:
+    build: .
+    entrypoint: sh ./.docker/entrypoint.sh
+    container_name: api-filmes
+    ports: 
+      - 3000:3000
+    restart: always
+    tty: true
+    networks:
+      - api-filmes
+    volumes:
+      - .:/usr/api-filmes/app
+
+networks:
+  api-filmes:
