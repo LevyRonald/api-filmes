@@ -1,19 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateTheaterDto } from '../dto/create-theater.dto';
 import { UpdateTheaterDto } from '../dto/update-theater.dto';
+import { Theater } from '../entities/theater.entity';
 
 @Injectable()
 export class TheatersService {
-  create(createTheaterDto: CreateTheaterDto) {
-    return 'This action adds a new theater';
+  constructor(
+    @InjectModel(Theater.name) private theather: Model<Theater>
+  ) { }
+  async create(createTheaterDto: CreateTheaterDto): Promise<Theater> {
+    return this.theather.create(createTheaterDto);
   }
 
   findAll() {
-    return `This action returns all theaters`;
+    return this.theather.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} theater`;
+  async findOne(id: string): Promise<Theater> {
+    return await this.theather.findById(id);
   }
 
   update(id: number, updateTheaterDto: UpdateTheaterDto) {
