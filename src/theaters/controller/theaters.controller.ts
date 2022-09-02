@@ -24,11 +24,11 @@ export class TheatersController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTheaterDto: UpdateTheaterDto) {
-    return this.theatersService.update(+id, updateTheaterDto);
+    return this.theatersService.update(id, updateTheaterDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.theatersService.remove(+id);
+    return this.theatersService.remove(id);
   }
 }

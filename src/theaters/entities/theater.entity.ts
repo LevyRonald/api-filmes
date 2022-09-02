@@ -6,7 +6,7 @@ import { ApiProperty, ApiTags } from "@nestjs/swagger";
 export class Theater {
     @Prop({ type: Object})
     @ApiProperty()
-    location
+    location: any
 
     @Prop()
     @ApiProperty()

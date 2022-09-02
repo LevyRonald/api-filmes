@@ -22,11 +22,11 @@ export class TheatersService {
     return await this.theather.findById(id);
   }
 
-  update(id: number, updateTheaterDto: UpdateTheaterDto) {
-    return `This action updates a #${id} theater`;
+  update(id: string, updateTheaterDto: UpdateTheaterDto) {
+    return this.theather.findByIdAndUpdate(id, updateTheaterDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} theater`;
+  remove(id: string) {
+    return this.theather.findByIdAndDelete(id); 
   }
 }

@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty, ApiTags } from "@nestjs/swagger";
 
-@Schema()
+@Schema({ versionKey: false })
 @ApiTags('users')
 export class User {
     @Prop()
