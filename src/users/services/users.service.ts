@@ -29,6 +29,10 @@ export class UsersService {
     return await this.user.findById(id);
   }
 
+  async findByEmail(email: string): Promise<User> {
+    return await this.user.findOne({ email })
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
     const data = {
       ...updateUserDto,
