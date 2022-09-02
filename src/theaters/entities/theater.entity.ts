@@ -2,19 +2,15 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty, ApiTags } from "@nestjs/swagger";
 
 @Schema({ versionKey: false })
-@ApiTags('users')
-export class User {
-    @Prop()
+@ApiTags('theaters')
+export class Theater {
+    @Prop({ type: Object})
     @ApiProperty()
-    name: string;
+    location: any
 
     @Prop()
     @ApiProperty()
-    email: string;
-
-    @Prop()
-    @ApiProperty()
-    password?: string;
+    theaterId: number
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const theatersSchema = SchemaFactory.createForClass(Theater);

@@ -4,8 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { AuthModule } from './auth/modules/auth.module';
 import { UsersModule } from './users/modules/users.module';
+import { TheatersModule } from './theaters/modules/theaters.module';
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule],
+  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule, TheatersModule],
   controllers: [],
   providers: [{
     provide: APP_GUARD,
