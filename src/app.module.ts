@@ -5,8 +5,9 @@ import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { AuthModule } from './auth/modules/auth.module';
 import { UsersModule } from './users/modules/users.module';
 import { TheatersModule } from './theaters/modules/theaters.module';
+import { MoviesModule } from './movies/modules/movies.module';
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule, TheatersModule],
+  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule, TheatersModule, MoviesModule],
   controllers: [],
   providers: [{
     provide: APP_GUARD,
