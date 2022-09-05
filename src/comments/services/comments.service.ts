@@ -19,7 +19,7 @@ export class CommentsService {
   }
 
   findOne(id: string) {
-    return `This action returns a #${id} comment`;
+    return this.comment.findById(id);
   }
 
   update(id: string, updateCommentDto: UpdateCommentDto) {
