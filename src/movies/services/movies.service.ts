@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateMovieDto } from '../dto/create-movie.dto';
 import { UpdateMovieDto } from '../dto/update-movie.dto';
+import { Movie } from '../entities/movie.entity';
 
 @Injectable()
 export class MoviesService {
-  create(createMovieDto: CreateMovieDto) {
-    return 'This action adds a new movie';
+  constructor(
+    @InjectModel(Movie.name) private movie: Model<Movie>
+  ) {}
+  async create(createMovieDto: CreateMovieDto): Promise<Movie> {
+    return this.movie.create(createMovieDto);
   }
 
   findAll() {
-    return `This action returns all movies`;
+    return this.movie.find().limit(10);
   }
 
   findOne(id: number) {
