@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty, ApiTags } from "@nestjs/swagger";
+import { Movies } from "../interfaces/movie.interface";
 
 @Schema({ versionKey: false })
 @ApiTags('movies')
@@ -48,9 +49,9 @@ export class Movie {
     @ApiProperty()
     rated: string
 
-    @Prop({ type: Object })
+    @Prop({ type: Object})
     @ApiProperty()
-    awards: any
+    awards: Movies['Awards']
 
     @Prop()
     @ApiProperty()
@@ -62,7 +63,7 @@ export class Movie {
 
     @Prop({ type: Object })
     @ApiProperty()
-    imdb: any
+    imdb: Movies['Imdb']
 
     @Prop()
     @ApiProperty()
@@ -74,6 +75,6 @@ export class Movie {
 
     @Prop({ type: Object })
     @ApiProperty()
-    tomatoes: any
+    tomatoes: Movies["Tomatoes"]
 }
 export const moviesSchema = SchemaFactory.createForClass(Movie);
