@@ -18,15 +18,15 @@ export class CommentsService {
     return this.comment.find().limit(20);
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} comment`;
   }
 
-  update(id: number, updateCommentDto: UpdateCommentDto) {
+  update(id: string, updateCommentDto: UpdateCommentDto) {
     return `This action updates a #${id} comment`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} comment`;
   }
 }
