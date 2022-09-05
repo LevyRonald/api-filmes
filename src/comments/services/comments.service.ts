@@ -10,8 +10,8 @@ export class CommentsService {
   constructor(
     @InjectModel(Comment.name) private comment: Model<Comment>
   ) {}
-  create(createCommentDto: CreateCommentDto) {
-    return 'This action adds a new comment';
+  create(createCommentDto: CreateCommentDto): Promise<Comment> {
+    return this.comment.create(createCommentDto);
   }
 
   findAll() {
