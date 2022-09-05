@@ -23,10 +23,10 @@ export class MoviesService {
   }
 
   update(id: string, updateMovieDto: UpdateMovieDto) {
-    return `This action updates a #${id} movie`;
+    return this.movie.findByIdAndUpdate(id, updateMovieDto);
   }
 
   remove(id: string) {
-    return `This action removes a #${id} movie`;
+    return this.movie.findByIdAndDelete(id);
   }
 }
