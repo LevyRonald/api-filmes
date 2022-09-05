@@ -18,15 +18,15 @@ export class MoviesService {
     return this.movie.find().limit(10);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} movie`;
+  async findOne(id: string) {
+    return await this.movie.findById(id);
   }
 
-  update(id: number, updateMovieDto: UpdateMovieDto) {
+  update(id: string, updateMovieDto: UpdateMovieDto) {
     return `This action updates a #${id} movie`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} movie`;
   }
 }
