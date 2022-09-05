@@ -7,27 +7,27 @@ import { UpdateCommentDto } from '../dto/update-comment.dto';
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
-  @Post()
+  @Post('/create')
   create(@Body() createCommentDto: CreateCommentDto) {
     return this.commentsService.create(createCommentDto);
   }
 
-  @Get()
+  @Get("/list")
   findAll() {
     return this.commentsService.findAll();
   }
 
-  @Get(':id')
+  @Get('/findone/:id')
   findOne(@Param('id') id: string) {
     return this.commentsService.findOne(id);
   }
 
-  @Patch(':id')
+  @Patch('/update/:id')
   update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
     return this.commentsService.update(id, updateCommentDto);
   }
 
-  @Delete(':id')
+  @Delete('/delete/:id')
   remove(@Param('id') id: string) {
     return this.commentsService.remove(id);
   }
