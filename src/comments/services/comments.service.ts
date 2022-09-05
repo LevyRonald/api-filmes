@@ -22,11 +22,11 @@ export class CommentsService {
     return this.comment.findById(id);
   }
 
-  update(id: string, updateCommentDto: UpdateCommentDto) {
-    return `This action updates a #${id} comment`;
+  async update(id: string, updateCommentDto: UpdateCommentDto): Promise<Comment> {
+    return await this.comment.findByIdAndUpdate(id, updateCommentDto);
   }
 
   remove(id: string) {
-    return `This action removes a #${id} comment`;
+    return this.comment.findByIdAndDelete(id);
   }
 }
