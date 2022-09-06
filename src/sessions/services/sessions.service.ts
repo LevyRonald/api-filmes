@@ -10,9 +10,6 @@ export class SessionsService {
   constructor(
     @InjectModel(Session.name) private session: Model<Session>
   ) {}
-  create(createSessionDto: CreateSessionDto) {
-    return 'This action adds a new session';
-  }
 
   findAll() {
     return this.session.find();
@@ -20,10 +17,6 @@ export class SessionsService {
 
   findOne(id: string) {
     return this.session.findById(id);
-  }
-
-  update(id: string, updateSessionDto: UpdateSessionDto) {
-    return `This action updates a #${id} session`;
   }
 
   remove(id: string) {
