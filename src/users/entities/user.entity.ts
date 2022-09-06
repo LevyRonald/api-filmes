@@ -4,6 +4,8 @@ import { ApiProperty, ApiTags } from "@nestjs/swagger";
 @Schema({ versionKey: false })
 @ApiTags('users')
 export class User {
+    _id?: string;
+
     @Prop()
     @ApiProperty()
     name: string;
