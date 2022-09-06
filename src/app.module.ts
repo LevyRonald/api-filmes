@@ -7,8 +7,9 @@ import { UsersModule } from './users/modules/users.module';
 import { TheatersModule } from './theaters/modules/theaters.module';
 import { MoviesModule } from './movies/modules/movies.module';
 import { CommentsModule } from './comments/modules/comments.module';
+import { SessionsModule } from './sessions/modules/sessions.module';
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule, TheatersModule, MoviesModule, CommentsModule],
+  imports: [MongooseModule.forRoot(process.env.MONGO_URI), UsersModule, AuthModule, TheatersModule, MoviesModule, CommentsModule, SessionsModule],
   controllers: [],
   providers: [{
     provide: APP_GUARD,
