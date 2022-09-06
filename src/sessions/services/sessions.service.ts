@@ -19,7 +19,7 @@ export class SessionsService {
   }
 
   findOne(id: string) {
-    return `This action returns a #${id} session`;
+    return this.session.findById(id);
   }
 
   update(id: string, updateSessionDto: UpdateSessionDto) {
