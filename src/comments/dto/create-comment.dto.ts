@@ -1,19 +1,23 @@
+import { ApiProperty } from "@nestjs/swagger"
 import { IsDateString, IsEmail, IsString } from "class-validator"
-import { ObjectId } from "mongoose"
-
 export class CreateCommentDto {
     @IsString()
+    @ApiProperty()
     name: string
 
     @IsEmail()
+    @ApiProperty()
     email: string
 
     @IsString()
-    movie_id: ObjectId
+    @ApiProperty()
+    movie_id: string
 
     @IsString()
+    @ApiProperty()
     text: string
 
     @IsDateString()
+    @ApiProperty()
     date: Date
 }

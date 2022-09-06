@@ -8,23 +8,18 @@ import { Movie } from "src/movies/entities/movie.entity";
 @ApiTags()
 export class Comment {
     @Prop()
-    @ApiProperty()
     name: string
 
     @Prop()
-    @ApiProperty()
     email: string
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' })
-    @ApiProperty()
     movie_id: string 
 
     @Prop()
-    @ApiProperty()
     text: string
     
     @Prop()
-    @ApiProperty()
     date: Date
 }
 export const moviesSchema = SchemaFactory.createForClass(Comment)
