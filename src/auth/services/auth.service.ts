@@ -5,11 +5,15 @@ import { UsersService } from 'src/users/services/users.service';
 import * as bcrypt from 'bcrypt';
 import { UserPayload } from '../models/UserPayload';
 import { UserToken } from 'src/auth/models/UserToken'
+import { InjectModel } from '@nestjs/mongoose';
+import { Session } from 'src/sessions/entities/session.entity';
+import { Model } from 'mongoose';
 @Injectable()
 export class AuthService {
     constructor(
         private readonly jwtService: JwtService,
         private readonly usersService: UsersService,
+        @InjectModel(Session.name) private session:  Model<Session>
       ) {}
 
     async login(user: User): Promise<UserToken> {
@@ -36,5 +40,15 @@ export class AuthService {
             }
         }
         throw new Error('Email ou senha incorreto');
+    }
+    async sessionUser(email: string, jwt: string){
+        const Session = {
+            user_id: email,
+            jwt: jwt
+        }
+        if(Session.user_id == email){
+            this.session.deleteOne({user_id: Session.user_id}).exec()
+        }
+        this.session.create(Session)
     }
 }
